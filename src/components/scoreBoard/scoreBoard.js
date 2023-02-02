@@ -15,3 +15,4 @@ const scoreBoard = (props) => {
             })}
     </div>)
 }
+export default scoreBoard;
