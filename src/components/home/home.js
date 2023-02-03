@@ -16,7 +16,7 @@ class Match {
     }
 }
 
-const home = () => {
+const Home = () => {
     const [matchList, setMatchList] = React.useState([]);
     const [Adding, setAdding] = React.useState(false);
     const { register, handleSubmit, formState: { errors }, setValue, getValues } = useForm();
@@ -331,4 +331,4 @@ const home = () => {
         </div>
     )
 }
-export default home ;
+export default Home ;
