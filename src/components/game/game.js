@@ -3,21 +3,24 @@ import Clock from "../../helpers/clock";
 
 
 const Game = (props) => {
-    const { matchDetails } = props;
+    const { matchDetails ,Update} = props;
     const [updating, setupdating] = React.useState(false);
 
     const onFinish = (id) => {
-        // console.log("Time's Up!", id);
-        // let Game = matchList.find(match=>match.id==id)
+        console.log("Time's Up!", matchDetails);
+        // let game = matchList.find(match=>match.id==id)
         // let index = matchList.findIndex(match=>match.id==id);
-        // Game.status = "Ended";
-        // matchList[index] = Game;
+        matchDetails.status = "Ended";
+        // console.log("Ended",matchDetails);  
+        Update(matchDetails)
+        // matchList[index] = game;
         // setMatchList([...matchList])
     }
     const increaseHomeScore = (id) => {
         // let Game = matchList.find(match=>match.id==id)
         // let index = matchList.findIndex(match=>match.id==id);
-        // Game.homeTeamScore = matchList[index].homeTeamScore + 1;
+        matchDetails.homeTeamScore = matchDetails.homeTeamScore + 1;
+        Update(matchDetails)
         // matchList[index] = Game;
         // setMatchList([...matchList])
         // // console.log("finale matchList", matchList)
@@ -27,6 +30,8 @@ const Game = (props) => {
     const decreaseHomeScore = (id) => {
         // let Game = matchList.find(match=>match.id==id)
         // let index = matchList.findIndex(match=>match.id==id);
+        matchDetails.homeTeamScore = matchDetails.homeTeamScore - 1;
+        Update(matchDetails)
         // Game.homeTeamScore = matchList[index].homeTeamScore - 1;
         // matchList[index] = Game;
         // setMatchList([...matchList])
@@ -36,6 +41,8 @@ const Game = (props) => {
     const increaseAwayScore = (id) => {
         // let Game = matchList.find(match=>match.id==id)
         // let index = matchList.findIndex(match=>match.id==id);
+        matchDetails.awayTeamScore = matchDetails.awayTeamScore + 1;
+        Update(matchDetails)
         // Game.awayTeamScore = matchList[index].awayTeamScore + 1;
         // matchList[index] = Game;
         // setMatchList([...matchList])
@@ -47,6 +54,8 @@ const Game = (props) => {
         // let Game = matchList.find(match=>match.id==id)
         // let index = matchList.findIndex(match=>match.id==id);
         // Game.awayTeamScore = matchList[index].awayTeamScore - 1;
+        matchDetails.awayTeamScore = matchDetails.awayTeamScore - 1;
+        Update(matchDetails)
         // matchList[index] = Game;
         // setMatchList([...matchList])
         // Sort();
