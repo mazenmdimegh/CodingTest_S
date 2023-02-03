@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Clock from "../../helpers/clock";
 
 
 const Game = (props) => {
     const { matchDetails } = props;
+    const [updating, setupdating] = React.useState(false);
 
     const onFinish = (id) => {
         // console.log("Time's Up!", id);
@@ -49,7 +51,9 @@ const Game = (props) => {
         // setMatchList([...matchList])
         // Sort();
     }
-
+    const displayUpdateBtn = () => {
+        setupdating(!updating);
+    };
     return (<div>
         {
             matchDetails.status == "In Progress" && <div className="scoreboard__container">

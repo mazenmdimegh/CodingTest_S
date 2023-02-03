@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./Board.scss";
+// import "./Board.scss";
 
 
 function Clock({endClock}) {
