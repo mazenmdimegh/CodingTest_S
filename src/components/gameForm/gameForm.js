@@ -4,7 +4,6 @@ import countries from"../../helpers/countries.json"
 import Match from "../../helpers/match";
 
 const GameForm = ({NewGame}) => {
-    // const [matchList, setMatchList] = React.useState([]);
     const [Adding, setAdding] = React.useState(false);
     const { register, handleSubmit, formState: { errors }, setValue, getValues } = useForm();
 
@@ -16,9 +15,6 @@ const GameForm = ({NewGame}) => {
         console.log("submitted")
         const match1 = new Match(getValues("awayTeam"), getValues("homeTeam"));
         NewGame(match1)
-        // matchList.push(match1)
-        // setMatchList([...matchList])
-        // console.log(matchList)
         setValue("awayTeam", "")
         setValue("homeTeam", "")
         setAdding(!Adding);

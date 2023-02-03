@@ -10,14 +10,28 @@ const Home = () => {
         let index = matchList.findIndex(match1 => match1.id == match.id);
         matchList[index] = match
         setMatchList([...matchList])
-        console.log("Home updated",match)
-        // NextUpdate(match)
+        console.log("Home updated")
+        Sort();
+        setMatchList([...matchList])
+        console.log(matchList)
     }
     const AddNewGame = (match) => {
         matchList.push(match)
         setMatchList([...matchList])
     }
-
+    const Sort =()=>{
+        setMatchList( matchList.sort((a, b) => {
+            const totalScoreA = a.awayTeamScore + a.homeTeamScore;
+            const totalScoreB = b.awayTeamScore + b.homeTeamScore;
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+    
+            if (totalScoreA === totalScoreB) {
+                return dateB - dateA;
+            }
+            return totalScoreB - totalScoreA;
+        }))
+    }
     return (
         <div>
             <ScoreBoard matchList={matchList} NextUpdate={NextUpdate} />
