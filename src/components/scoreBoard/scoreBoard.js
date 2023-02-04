@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Game from "../game/game";
 
 
-const scoreBoard = (props) => {
+const ScoreBoard = (props) => {
     const { matchList ,NextUpdate} = props;
     const Update = (match) => {
         NextUpdate(match)
@@ -21,4 +21,4 @@ const scoreBoard = (props) => {
         </div>
     )
 }
-export default scoreBoard;
+export default ScoreBoard;
