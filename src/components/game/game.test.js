@@ -14,3 +14,14 @@ test('Game Display', () => {
     expect(text).toBeInTheDocument();
     expect(text2).toBeInTheDocument();    
 });
+
+test('Game Update', () => {
+    const match = new Match("AwayTeamTest", "HomeTeamTest");
+    render(<Game matchDetails={match}/>);
+    const NewGameBtn = screen.getByText("Update score");
+    userEvent.click(NewGameBtn);
+    const text = screen.getAllByText("+");
+    const text2 = screen.getAllByText("-");
+    expect(text[0]).toBeInTheDocument();
+    expect(text2[0]).toBeInTheDocument();
+});
