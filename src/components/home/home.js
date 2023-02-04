@@ -5,15 +5,29 @@ import GameForm from "../gameForm/gameForm";
 
 const Home = () => {
     const [matchList, setMatchList] = React.useState([]);
-  
+    useEffect(() => {
+        // setMatchList( matchList.sort((a, b) => {
+        //     const totalScoreA = a.awayTeamScore + a.homeTeamScore;
+        //     const totalScoreB = b.awayTeamScore + b.homeTeamScore;
+        //     const dateA = new Date(a.date);
+        //     const dateB = new Date(b.date);
+    
+        //     if (totalScoreA === totalScoreB) {
+        //         return dateB - dateA;
+        //     }
+        //     return totalScoreB - totalScoreA;
+        // }))
+      }, [matchList]);
+
     const NextUpdate = (match) => {
+        console.log("Before update",matchList)
         let index = matchList.findIndex(match1 => match1.id == match.id);
         matchList[index] = match
         setMatchList([...matchList])
-        console.log("Home updated")
+        console.log("updated",matchList)
         Sort();
         setMatchList([...matchList])
-        console.log(matchList)
+        // console.log(matchList)
     }
     const AddNewGame = (match) => {
         matchList.push(match)

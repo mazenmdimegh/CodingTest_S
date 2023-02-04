@@ -5,8 +5,8 @@ import Clock from "../../helpers/clock";
 const Game = (props) => {
     const { matchDetails ,Update} = props;
     const [updating, setupdating] = React.useState(false);
-
-    const onFinish = (id) => {
+    
+    const onFinish = () => {
         console.log("Time's Up!", matchDetails);
         matchDetails.status = "Ended";
         Update(matchDetails)
@@ -37,7 +37,7 @@ const Game = (props) => {
                 <div className="scoreboard__basics mb-05">
 
                     <span className="text-danger">
-                    </span><Clock endClock={() => onFinish(matchDetails.id)} />
+                    </span><Clock endClock={onFinish} />
                 </div>
                 <div className="scoreboard__teams">
                     <div className="scoreboard__team scoreboard__team--align-right mr-2">

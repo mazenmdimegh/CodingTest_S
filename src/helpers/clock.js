@@ -6,15 +6,22 @@ function Clock({endClock}) {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    // console.log("startClock")
+    // const timeout = setTimeout(() => {
+    //     endClock();
+    // }, 50000);
+    // return () => clearTimeout(timeout);
+    if (seconds==50){
         endClock();
-    }, 90000);
-    return () => clearTimeout(timeout);
-  }, []);
+        // console.log("time's up")    
+    }
+  }, [seconds]);
 
   useEffect(() => {
+    console.log("startClock")
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
+      console.log("incrementing")
     }, 1000);
     return () => clearInterval(interval);
   }, []);
