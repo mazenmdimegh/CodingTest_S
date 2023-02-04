@@ -27,8 +27,8 @@ const GameForm = ({NewGame}) => {
                 <form onSubmit={handleSubmit(Submit)}>
                     <div className="form-wrapper">
                         <div className="job-text1 coll">
-                            <label className="Label">Home Team:</label>
-                            <select id="country" className={
+                            <label htmlFor="home Team" className="Label">Home Team:</label>
+                            <select data-testid="selectHomeTeam" id="home Team" className={
                                 errors.lastname ? "errorInput job-text-input1" : "job-text-input1"
                             }
                                 placeholder=" awayTeam *"
@@ -40,9 +40,9 @@ const GameForm = ({NewGame}) => {
                             {errors.homeTeam && <p className="error">*ce champ est obligatoire</p>}
                         </div>
                         <div className="coll collRight">
-                            <label className="Label">Away Team:</label>
+                            <label htmlFor="away Team" className="Label">Away Team:</label>
 
-                            <select id="country" className={
+                            <select data-testid="selectAwayTeam" id="away Team" className={
                                 errors.awayTeam ? "errorInput job-text-input" : "job-text-input"
                             }
                                 placeholder=" homeTeam *"
