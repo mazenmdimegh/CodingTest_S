@@ -4,18 +4,13 @@ import userEvent from '@testing-library/user-event';
 import Match from '../../helpers/match';
 
 
-test('New Game Form', () => {
+test('Game Display', () => {
     const match = new Match("AwayTeamTest", "HomeTeamTest");
     render(<Game matchDetails={match}/>);
-    
     const text = screen.getByText(/AwayTeamTest/i);
     const text2 = screen.getByText(/HomeTeamTest/i);
+    const text3 = screen.getAllByText(0);
+    expect(text3[0]).toBeInTheDocument();
     expect(text).toBeInTheDocument();
-    expect(text2).toBeInTheDocument();      
-    // const NewGameBtn = screen.getByText("New Game");
-    // userEvent.click(NewGameBtn);
-    // const HomeTeam = screen.getByLabelText(/home Team/i);
-    // const Away = screen.getByLabelText(/away Team/i);
-    // expect(Away).toBeVisible();
-    // expect(HomeTeam).toBeVisible();
+    expect(text2).toBeInTheDocument();    
 });
