@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import countries from"../../helpers/countries.json"
 import Match from "../../helpers/match";
+import "./gameForm.scss"
 
 const GameForm = ({NewGame}) => {
     const [Adding, setAdding] = React.useState(false);
