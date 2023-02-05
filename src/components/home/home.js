@@ -20,14 +20,11 @@ const Home = () => {
       }, [matchList]);
 
     const NextUpdate = (match) => {
-        console.log("Before update",matchList)
         let index = matchList.findIndex(match1 => match1.id == match.id);
         matchList[index] = match
         setMatchList([...matchList])
-        console.log("updated",matchList)
         Sort();
         setMatchList([...matchList])
-        // console.log(matchList)
     }
     const AddNewGame = (match) => {
         matchList.push(match)

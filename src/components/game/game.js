@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
+import ReactCountryFlag from "react-country-flag";
 import Clock from "../../helpers/clock";
 import "./game.scss"
+import countries from"../../helpers/countries.json"
+import { react } from "@babel/types";
 
 const Game = (props) => {
     const { matchDetails, Update } = props;
     const [updating, setupdating] = React.useState(false);
+    const [homeTeamcode,setHomeTeamCode]=React.useState()
+    const [awayTeamcode,setAwayTeamCode]=React.useState()
 
+    // useEffect(() => {
+    //     console.log()
+    //     console.log(homeTeamcode);
+    //   }, [matchDetails]);
     const onFinish = () => {
-        // console.log("Time's Up!", matchDetails);
         matchDetails.status = "Ended";
         Update(matchDetails)
     }
@@ -43,7 +51,7 @@ const Game = (props) => {
                 <div className="scoreboard__teams">
                     <div className="scoreboard__team scoreboard__team--align-right mr-2">
                         <div className="scoreboard__badge ml-1">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png" alt="Manchester United" />
+                            <ReactCountryFlag countryCode={countries[countries.findIndex((country)=>country.name==matchDetails.homeTeam)].code} svg />
                         </div>
                         <span className="scoreboard__name">{matchDetails.homeTeam}</span>
                     </div>
@@ -54,7 +62,7 @@ const Game = (props) => {
                     </div>
                     <div className="scoreboard__team scoreboard__team--align-left ml-2">
                         <div className="scoreboard__badge mr-1">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png" alt="Liverpool" />
+                            <ReactCountryFlag countryCode={countries[countries.findIndex((country)=>country.name==matchDetails.awayTeam)].code} svg />
                         </div>
                         <span className="scoreboard__name">{matchDetails.awayTeam}</span>
                     </div>

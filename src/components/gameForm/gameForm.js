@@ -13,7 +13,6 @@ const GameForm = ({NewGame}) => {
     };
 
     const Submit = async (data) => {
-        console.log("submitted")
         const match1 = new Match(getValues("awayTeam"), getValues("homeTeam"));
         NewGame(match1)
         setValue("awayTeam", "")

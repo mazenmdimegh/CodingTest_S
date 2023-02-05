@@ -202,8 +202,8 @@ $primaryColor: $blue;
         height: 38px;
 
         img {
-            height: 71%;
-            width: 38px;
+            height: 71% !important;
+            width: 38px !important;
             margin-top: 4px;
         }
     }
