@@ -17,6 +17,7 @@ $space-size-5: $space-size * 5;
 $space-size-6: $space-size * 6;
 
 
+
 $white: $gray300;
 $secondaryTextColor: $gray500;
 $black: $gray900;
@@ -97,18 +98,7 @@ $primaryColor: $blue;
     margin-right: $space-size-5;
 }
 
-html,
-body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    background: $bodyBg;
-    color: $white;
-    // width: 414px;
-    font-weight: 400;
-    margin: $space-size auto;
-    padding: $space-size-2;
-    text-align: center;
-}
+
 
 
 .popup-container {
