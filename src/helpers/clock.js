@@ -19,7 +19,7 @@ function Clock({endClock}) {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>Time remaining: <span className="text-danger">{ seconds}' </span> minutes</div>;
+  return <div>Time remaining: <span className="text-danger">{ seconds}' </span> seconds</div>;
 }
 
 export default Clock;
